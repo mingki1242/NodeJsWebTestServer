@@ -14,4 +14,3 @@ function union(arr1, arr2) {
     return answer
 }
 
-console.log(union([1],[3,4,5,2,7]))
