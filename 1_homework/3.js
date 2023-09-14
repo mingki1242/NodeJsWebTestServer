@@ -3,24 +3,24 @@ function create_matrix(n,x)
     let matrix = []
     while(matrix.length < x)
     {
-        let check = false;
-        let row = Math.floor(Math.random() * n);
-        let col = Math.floor(Math.random() *n);
+        let check = false
+        let row = Math.floor(Math.random() * n)
+        let col = Math.floor(Math.random() *n)
         for(const item of matrix)
         {
             if(item.row === row && item.col ===col)
             {
-                check = true;
-                break;
+                check = true
+                break
             }
         }
         if(!check)
         {
-            let value = Math.floor(Math.random()*10)+1;
+            let value = Math.floor(Math.random()*10)+1
             matrix.push({row , col , value})
         }
     }
-    matrix.sort((a, b) => (a.row - b.row) || (a.col - b.col));
+    matrix.sort((a, b) => (a.row - b.row) || (a.col - b.col))
     return matrix
 }
 
@@ -76,11 +76,11 @@ function sum(A,B)
 }
 
 
-const A = create_matrix(5, 4);
-const B = create_matrix(5, 4);
-const C = sum(A,B);
-console.log(A);
-console.log(B);
-console.log(C);
+const A = create_matrix(5, 4)
+const B = create_matrix(5, 4)
+const C = sum(A,B)
+console.log(A)
+console.log(B)
+console.log(C)
 
 
