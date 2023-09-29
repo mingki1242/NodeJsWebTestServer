@@ -21,7 +21,7 @@ function frequent_pairs(data_file_name , stopword_file_name ,k)
 
     const Word_Count = {};
 
-    for(let [w1 , w2] of Word_Couples)
+    for(let [w1,w2] of Word_Couples)
     {
         if(!Stop_File_Descriptor.includes(w1) && !Stop_File_Descriptor.includes(w2))
         {
@@ -34,12 +34,14 @@ function frequent_pairs(data_file_name , stopword_file_name ,k)
 
     for(let i =0 ; i<k ;i++)
     {
-        console.log(`${Sort_Word[i]} : ${Word_Count[Sort_Word[i]]}회`);
+        console.log(`[${Sort_Word[i]}] : ${Word_Count[Sort_Word[i]]}회 ,`);
     }
 
 
 }
 
 frequent_pairs('novel.txt' , 'stop.txt',5)
+
+
 
 
