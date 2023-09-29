@@ -7,40 +7,50 @@ function frequent_pairs(data_file_name , stopword_file_name ,k)
     const lines = Data_File_Descriptor.split(/[?.!]/);
 
     const Word_Couples = [];
-
+    const Word_Count = {};
     for(let line of lines)
     {
-        let tmp = line.trim().toLowerCase().split(/\s+/)
-        for(let i = 0 ;i<tmp.length-1;i++)
+        let tmp = line.trim().toLowerCase().split(/[^a-zA-Z0-9_\-/"()]+/)
+        for(let i = 0 ;i<tmp.length;i++)
         {
-            let w1 = tmp[i];
-            let w2 = tmp[i+1];
-            if(w1.length>=5 && w2.length>=5) Word_Couples.push([w1,w2]);
+            for(let j =i+1;j<tmp.length;j++)
+            {
+                let w1 = tmp[i];
+                let w2 = tmp[j];
+                if(w1.length>=5 && w2.length>=5 && w1 !== w2)
+                {
+                    let sort_Couple = [w1,w2].sort().join(", ");
+                    if(!Stop_File_Descriptor.includes(w1) && !Stop_File_Descriptor.includes(w2)) {
+                        if (isNaN(Word_Count[sort_Couple])) Word_Count[sort_Couple] = 0;
+                        Word_Count[sort_Couple]++;
+                    }
+                }
+            }
+
         }
     }
 
-    const Word_Count = {};
 
-    for(let [w1,w2] of Word_Couples)
-    {
-        if(!Stop_File_Descriptor.includes(w1) && !Stop_File_Descriptor.includes(w2))
-        {
-            if(isNaN(Word_Count[`${w1} ${w2}`])) Word_Count[`${w1} ${w2}`] = 0;
-            Word_Count[`${w1} ${w2}`] = Word_Count[`${w1} ${w2}`] + 1;
-        }
-    }
 
-    const Sort_Word = Object.keys(Word_Count).sort((x,y) => Word_Count[y] - Word_Count[x]);
 
+    const Sort_Word = Object.entries(Word_Count).sort((x,y) => y[1] - x[1]);
+
+    console.log('[')
     for(let i =0 ; i<k ;i++)
     {
-        console.log(`[${Sort_Word[i]}] : ${Word_Count[Sort_Word[i]]}회 ,`);
+        console.log(`    ['(${Sort_Word[i][0]})'] : ${Sort_Word[i][1]}회 ,`);
     }
-
+    console.log(']')
 
 }
 
 frequent_pairs('novel.txt' , 'stop.txt',5)
+
+
+
+
+
+
 
 
 
