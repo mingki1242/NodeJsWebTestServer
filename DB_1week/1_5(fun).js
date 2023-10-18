@@ -18,3 +18,4 @@ console.log(calculate(10,2,add))
 console.log(calculate(10,2,subtract))
 console.log(calculate(10,2,times))
 console.log(calculate(10,2,division))
+

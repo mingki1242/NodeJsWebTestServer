@@ -14,3 +14,9 @@ function union(arr1, arr2) {
     return answer
 }
 
+console.log(union([1,2,3] , [2,3,4,5]))
+
+
+
+
+
