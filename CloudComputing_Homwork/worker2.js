@@ -1,6 +1,6 @@
 const { parentPort, workerData } = require("worker_threads");
 
-const targetId = '199992'; // 검색할 학번
+const targetId = '166601';
 const lines = workerData.split('\n');
 
 let foundStudent = null;

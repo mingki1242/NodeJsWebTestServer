@@ -8,7 +8,6 @@ if (isMainThread) {
             return;
         }
 
-        // 데이터 병렬화: 두 개의 스레드에서 실행하기 위한 두 개의 파일 덩어리 생성
         const lines = File_Contents.split('\n');
         const mid = Math.floor(lines.length / 2);
         const File_First_Data = lines.slice(0, mid).join('\n');
@@ -17,10 +16,10 @@ if (isMainThread) {
         let totalResults = [];
         let isSearchCompleted = false;
 
-        // 시간 측정
+
         const startTime = performance.now();
 
-        // 워커 스레드로 파일 데이터 전달
+
         const worker1 = new Worker("./worker1.js", { workerData: File_First_Data });
         const worker2 = new Worker("./worker2.js", { workerData: File_Second_Data });
 
@@ -53,3 +52,4 @@ if (isMainThread) {
         }
     });
 }
+

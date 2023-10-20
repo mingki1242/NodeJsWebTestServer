@@ -2,13 +2,13 @@ const fs = require("fs");
 const { Worker, isMainThread, parentPort } = require("worker_threads");
 
 if (isMainThread) {
-    fs.readFile("student_data.txt", "utf8", (err, File_Contents) => {
+    fs.readFile("students.txt", "utf8", (err, File_Contents) => {
         if (err) {
             console.error(err);
             return;
         }
 
-        // 데이터 병렬화: 두 개의 스레드에서 실행하기 위한 두 개의 파일 덩어리 생성
+
         const lines = File_Contents.split('\n');
         const mid = Math.floor(lines.length / 2);
         const File_First_Data = lines.slice(0, mid).join('\n');

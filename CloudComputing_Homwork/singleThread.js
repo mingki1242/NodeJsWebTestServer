@@ -1,12 +1,12 @@
 const fs = require("fs");
 
-fs.readFile("student_data.txt", "utf8", (err, fileContents) => {
+fs.readFile("students.txt", "utf8", (err, fileContents) => {
     if (err) {
         console.error(err);
         return;
     }
 
-    const targetId = '199992'; // 검색할 학번
+    const targetId = '9999999'; // 검색할 학번
 
     const lines = fileContents.split('\n');
     let foundStudent = null;
