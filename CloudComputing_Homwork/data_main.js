@@ -27,6 +27,10 @@ if (isMainThread) {
             if (result) {
                 totalResults.push(result);
                 showResults();
+
+                setTimeout(function () {
+
+                }, 100000);
             }
         });
 
@@ -34,6 +38,10 @@ if (isMainThread) {
             if (result) {
                 totalResults.push(result);
                 showResults();
+
+                setTimeout(function () {
+
+                }, 100000);
             }
         });
 
@@ -42,10 +50,9 @@ if (isMainThread) {
                 const endTime = performance.now();
                 const executeTime = endTime - startTime;
 
-                // 결과 출력
+
                 console.log('검색 결과:', totalResults);
 
-                // 실행 시간 출력
                 console.log('실행 시간 (밀리초):', executeTime);
                 isSearchCompleted = true;
             }
