@@ -1,4 +1,3 @@
-
 class Animal{
     constructor(age) {
         this.age = age;
@@ -22,9 +21,9 @@ function get_oldest_cat(...cats)
     return cats.find(o=>o.age == max_age);
 }
 function sorted(cats)
-    {
-        return cats.sort((x,y) => x.age - y.age);
-    }
+{
+    return cats.sort((x,y) => x.age - y.age);
+}
 
 
 

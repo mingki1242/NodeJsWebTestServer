@@ -3,7 +3,7 @@ function foo(x , y)
 {
     return new Promise((resolve , reject) => {
         setTimeout((x,y) => {
-            if((x+y) %2 ==0)
+            if((x+y) % 2 === 0)
                 resolve(`Success : ${x+y}`)
             else
                 reject(new Error(x+y));
